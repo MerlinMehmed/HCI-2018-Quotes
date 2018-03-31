@@ -1,0 +1,19 @@
+.star {
+	font-size: 26px;
+	color: #F0DF46;
+}
+
+.heart {
+	color: white;
+	text-shadow: -2px 0 red, 0 2px red, 2px 0 red, 0 -2px red;
+	font-size: 26px;
+}
+
+.heart-btn {
+	border: none;
+	background: none;
+}
+
+.sth {
+	display: none;
+}

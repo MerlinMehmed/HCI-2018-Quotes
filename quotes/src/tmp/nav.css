@@ -1,0 +1,27 @@
+.custom-nav {
+	background-color: #8FD8D2;
+}
+
+.custom-nav * {
+	color: white;
+}
+
+.custom-nav input[type=text] {
+  padding: 6px;
+  font-size: 17px;
+  border: none;
+}
+
+.custom-nav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.custom-nav ul li .dropdown-menu {
+	background-color: #8FD8D2;
+}

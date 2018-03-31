@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Quote</title>
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="quote.css">
+	<script src="quote.js">
+		
+	</script>
+</head>
+<body>
+	<div class="quote">
+		<div class="quote-content">
+			<img class="quote-img" src="ocean.png" width="600px">
+		</div>
+		<div class="quote-bar" width="600px">
+			<span class="dropdown"> 
+				<span class="fa fa-star checked star dropbtn" onclick="rateQuote()"></span>
+				<span id="rate-quote dropdown-content" class="sth">
+					<span class="fa fa-star star-rate"></span>
+					<span class="fa fa-star star-rate"></span>
+					<span class="fa fa-star star-rate"></span>
+					<span class="fa fa-star star-rate"></span>
+					<span class="fa fa-star star-rate"></span>
+				</span>
+			</span>
+			<span>
+				<iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId" width="59" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+			</span>
+			<span>
+				<a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Hello%20world">Tweet</a>
+			</span>
+			<span id="heart" class="glyphicon glyphicon-heart heart" onclick="likeQuote()"></span>
+		</div>
+	</div>
+</body>
+</html>
