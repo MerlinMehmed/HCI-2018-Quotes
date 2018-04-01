@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Добавяне на цитат</title>
+    <meta charset="utf-8">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<link href="add_quote.css" rel="stylesheet" type="text/css"> 
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+	<div class="container">
+		<div>
+			<h1 class="col-lg-6 col-md-offset-3 well">Добавяне на цитат</h1>
+		</div>
+		<div class="col-lg-6 col-md-offset-3 well">
+			<div class="row">
+				<form>
+					<div class="col-lg-12 form-group">
+						<label>*Автор</label>
+						<input type="text" placeholder="Въведи автора на цитата тук" class="form-control" required>
+					</div>
+					<div class="col-lg-12 form-group">
+						<label>Източник</label>
+						<input type="text" placeholder="Въведи книга/списание/сайт, от който е цитата" class="form-control">
+					</div>
+						<div class="col-lg-12 row">
+							<div class="col-sm-6 form-group">
+								<label>*Категория</label></br>
+									<select name="category" required>
+										<option value="love">Любов</option>
+										<option value="friendship">Приятелство</option>
+										<option value="life">Живот</option>
+										<option value="happiness">Щастие</option>
+										<option value="sadness">Тъга</option>
+										<option value="time">Време</option>
+										<option value="good">Добро</option>
+										<option value="trust">Доверие</option>
+										<option value="egoism">Егоизъм</option>
+										<option value="knowledge">Знание</option>
+									</select>
+							</div>
+							<div class="col-sm-6 form-group">
+								<label>Изображение</label>
+								<input type="file" class="quote-img" name="pic" accept="image/*">
+							</div>
+						</div>
+						<div class="col-lg-12 form-group">
+							<label>*Цитат</label>
+							<textarea maxlength="500" placeholder="Въведи своя цитат тук" rows="3" class="form-control" required></textarea>
+						</div>
+						<div class="col-sm-12 form-group">
+							<label>*Задължителни полета</label>
+						</div>
+						<div class="button text-center">
+							<button type="button">Добавяне</button>	
+						</div>
+					</div>
+				</form> 
+			</div>
+		</div>
+	</div>
+  </body>
+</html>
