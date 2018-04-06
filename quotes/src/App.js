@@ -3,6 +3,9 @@ import "./App.css";
 import Navbar from "./Navbar";
 import Home from "./Home";
 import Login from "./forms/Login";
+import Register from "./forms/Register";
+import AddQuote from "./forms/AddQuote";
+import AddPersonalQuote from "./forms/AddPersonalQuote";
 import { Switch, Route } from "react-router-dom";
 
 class App extends Component {
@@ -15,6 +18,9 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
+            <Route path="/addQuote" component={AddQuote} />
+            <Route path="/addPersonalQuote" component={AddPersonalQuote} />
           </Switch>
         </div>
       </div>

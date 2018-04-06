@@ -15,7 +15,7 @@ class Navbar extends Component {
                     <a className="navbar-brand" href="#">Logo</a>
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Home</a>
+                            <Link to="/" className="nav-link" activeClassName="active">Home</Link>
                         </li>
                         <li className="nav-item">
                             <div className="nav-item dropdown">
@@ -33,6 +33,12 @@ class Navbar extends Component {
                         <li className="nav-item">
                             <a className="nav-link" href="#">Search</a>
                         </li>
+                        <li className="nav-item">
+                            <Link to="/addQuote" className="nav-link" activeClassName="active">Add quote</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/addPersonalQuote" className="nav-link" activeClassName="active">Add personal quote</Link>
+                        </li>
 
                     </ul>
                     <ul className="navbar-nav custom-right ml-auto">
@@ -48,7 +54,7 @@ class Navbar extends Component {
                             <Link to="/login" className="nav-link" activeClassName="active">Log in</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Register</a>
+                            <Link to="/register" className="nav-link" activeClassName="active">Register</Link>
                         </li>
                     </ul>
                 </div>
