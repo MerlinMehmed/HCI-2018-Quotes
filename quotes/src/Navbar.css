@@ -6,6 +6,20 @@
 	color: white;
 }
 
+.custom-nav .dropdown-item {
+	color: white;
+}
+
+.custom-nav .dropdown-item:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.custom-nav a:hover {
+  color:white;
+  text-decoration: underline;
+}
+
 .custom-nav input[type=text] {
   padding: 6px;
   font-size: 17px;

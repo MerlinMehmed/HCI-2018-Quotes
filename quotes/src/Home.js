@@ -12,11 +12,8 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <Navbar />
-                <div className="container">
-                    <h1>Quote of the day! :)</h1>
-                    <Quote text={this.text} author={this.author} />
-                </div>
+                <h1>Quote of the day! :)</h1>
+                <Quote text={this.text} author={this.author} />
             </div>
         );
     }
