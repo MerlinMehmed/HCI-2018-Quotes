@@ -5,14 +5,14 @@ import Navbar from "./Navbar";
 class Home extends Component {
     constructor(props) {
         super(props);
-        this.text = "Come what may, bad days shall pass, exactly like all the others.";
-        this.author = "William Shakespeare";
+        this.text = "Нищо не лекува така добре душата както вълненията, а от вълненията може да ни излекува само душата.";
+        this.author = "Оскар Уайлд";
     }
 
     render() {
         return (
             <div>
-                <h1>Quote of the day! :)</h1>
+                <h1>Цитат на деня! :)</h1>
                 <Quote text={this.text} author={this.author} />
             </div>
         );
