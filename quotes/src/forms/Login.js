@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 
 class Login extends Component {
+    login(e) {
+        e.preventDefault();
+        sessionStorage.setItem("username", "ПоМЕло");
+        window.location.href = "/";
+    }
+
     render() {
         return (
             <div className="row form-top">
@@ -16,7 +22,7 @@ class Login extends Component {
                                 <label>Парола:</label>
                                 <input type="password" placeholder="Въведи паролата си тук" className="form-control" required />
                             </div>
-                            <button className="btn btn-info btn-width" type="submit">Вход</button>
+                            <button className="btn btn-info btn-width" onClick={this.login}>Вход</button>
                         </form>
                     </div>
                 </div>

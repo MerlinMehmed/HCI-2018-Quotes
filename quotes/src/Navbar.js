@@ -3,7 +3,56 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 class Navbar extends Component {
+    componentWillMount() {
+        this.username = sessionStorage.getItem("username");
+    }
+
+    logout() {
+        sessionStorage.clear();
+        window.location.href = "/";
+    }
+
     render() {
+        let rightMenu;
+        if (this.username) {
+            rightMenu = (
+                <ul className="navbar-nav custom-right ml-auto">
+                    <li className="nav-item">
+                        <div className="search-container">
+                            <form action="/">
+                                <input type="text" placeholder="Търси.." name="search" id="search-input" />
+                                <button type="submit"><i className="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/profile" className="nav-link" activeClassName="active">Здравей, {this.username}</Link>
+                    </li>
+                    <li className="nav-item">
+                        <button className="nav-link logout-btn" activeClassName="active" onClick={this.logout}>Изход</button>
+                    </li>
+                </ul>
+            );
+        } else {
+            rightMenu = (
+                <ul className="navbar-nav custom-right ml-auto">
+                    <li className="nav-item">
+                        <div className="search-container">
+                            <form action="/">
+                                <input type="text" placeholder="Търси.." name="search" id="search-input" />
+                                <button type="submit"><i className="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/login" className="nav-link" activeClassName="active">Влез</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/register" className="nav-link" activeClassName="active">Регистрация</Link>
+                    </li>
+                </ul>
+            );
+        }
         return (
             <nav className="navbar navbar-expand-sm custom-nav">
                 <div className="navbar-dark">
@@ -21,9 +70,9 @@ class Navbar extends Component {
                             <div className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Цитати</a>
                                 <div className="dropdown-menu">
-									<Link to="/Browse/Authors" className="nav-link dropdown-item" activeClassName="active">Автори</Link>
-									<Link to="/Browse/Books and magazines" className="nav-link dropdown-item" activeClassName="active">Книги и списания</Link>
-									<Link to="/Browse/Categories" className="nav-link dropdown-item" activeClassName="active">Категории</Link>
+                                    <Link to="/Browse/Authors" className="nav-link dropdown-item" activeClassName="active">Автори</Link>
+                                    <Link to="/Browse/Books and magazines" className="nav-link dropdown-item" activeClassName="active">Книги и списания</Link>
+                                    <Link to="/Browse/Categories" className="nav-link dropdown-item" activeClassName="active">Категории</Link>
                                 </div>
                             </div>
                         </li>
@@ -36,24 +85,8 @@ class Navbar extends Component {
                         <li className="nav-item">
                             <Link to="/addPersonalQuote" className="nav-link" activeClassName="active">Добави личен цитат</Link>
                         </li>
-
                     </ul>
-                    <ul className="navbar-nav custom-right ml-auto">
-                        <li className="nav-item">
-                            <div className="search-container">
-                                <form action="/">
-                                    <input type="text" placeholder="Търси.." name="search" id="search-input" />
-                                    <button type="submit"><i className="fa fa-search"></i></button>
-                                </form>
-                            </div>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/login" className="nav-link" activeClassName="active">Влез</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/register" className="nav-link" activeClassName="active">Регистрация</Link>
-                        </li>
-                    </ul>
+                    {rightMenu}
                 </div>
             </nav>
         );

@@ -43,3 +43,9 @@
 #search-input {
   color: black;
 }
+
+.logout-btn {
+  background: inherit;
+  border:none;
+  cursor: pointer;
+}
