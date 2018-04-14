@@ -28,10 +28,7 @@ class Navbar extends Component {
                             </div>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Лични Цитати</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Търсене</a>
+                            <Link to="/page" className="nav-link" activeClassName="active">Лични цитати</Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/addQuote" className="nav-link" activeClassName="active">Добави цитат</Link>
@@ -45,7 +42,7 @@ class Navbar extends Component {
                         <li className="nav-item">
                             <div className="search-container">
                                 <form action="/">
-                                    <input type="text" placeholder="Търси.." name="search" />
+                                    <input type="text" placeholder="Търси.." name="search" id="search-input" />
                                     <button type="submit"><i className="fa fa-search"></i></button>
                                 </form>
                             </div>

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./views.css";
 
 class viewAuthors extends Component {
-
     render() {
         return (
 			<div className="container col-lg-12 components">
@@ -26,15 +25,15 @@ class viewAuthors extends Component {
 				</div>
 				<div className="col-sm-10 view" id="authors">
 					<ul>
-						<li><a href="url">Алберт Айнщайн</a></li>
-						<li><a href="url">Антоан дьо Сент Екзюпери</a></li>
-						<li><a href="url">Волтер</a></li>
-						<li><a href="url">Данте Алигиери</a></li>
-						<li><a href="url">Йохан фон Гьоте</a></li>
-						<li><a href="url">Марк Твен</a></li>
-						<li><a href="url">Ричард Бах</a></li>
-						<li><a href="url">Уилям Шекспир</a></li>
-						<li><a href="url">Ърнест Милър Хемингуей</a></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Алберт Айнщайн</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Антоан дьо Сент Екзюпери</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Волтер</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Данте Алигиери</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Йохан фон Гьоте</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Марк Твен</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Ричард Бах</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Уилям Шекспир</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Ърнест Милър Хемингуей</Link></li>
 					</ul>
 				</div>
 			</div>

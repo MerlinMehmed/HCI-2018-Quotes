@@ -25,16 +25,16 @@ class viewCategories extends Component {
 				</div>
 				<div className="col-sm-10 view" id="categories">
 					<ul>
-						<li><a href="url">Любов</a></li>
-						<li><a href="url">Приятелство</a></li>
-						<li><a href="url">Живот</a></li>
-						<li><a href="url">Щастие</a></li>
-						<li><a href="url">Тъга</a></li>
-						<li><a href="url">Време</a></li>
-						<li><a href="url">Добро</a></li>
-						<li><a href="url">Доверие</a></li>
-						<li><a href="url">Егоизъм</a></li>
-						<li><a href="url">Знание</a></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Любов</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Приятелство</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Живот</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Щастие</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Тъга</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Време</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Добро</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Доверие</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Егоизъм</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Знание</Link></li>
 					</ul>
 				</div>
 			</div>

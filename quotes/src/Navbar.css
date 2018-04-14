@@ -39,3 +39,7 @@
 .custom-nav ul li .dropdown-menu {
 	background-color: #8FD8D2;
 }
+
+#search-input {
+  color: black;
+}

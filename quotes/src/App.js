@@ -9,6 +9,7 @@ import viewAuthors from "./views/viewAuthors";
 import viewSources from "./views/viewSources";
 import viewCategories from "./views/viewCategories";
 import AddPersonalQuote from "./forms/AddPersonalQuote";
+import Page from "./Page";
 import { Switch, Route } from "react-router-dom";
 
 class App extends Component {
@@ -24,9 +25,10 @@ class App extends Component {
             <Route path="/register" component={Register} />
             <Route path="/addQuote" component={AddQuote} />
             <Route path="/addPersonalQuote" component={AddPersonalQuote} />
-			<Route path="/Browse/Authors" component={viewAuthors} />
-			<Route path="/Browse/Books and magazines" component={viewSources} />
-			<Route path="/Browse/Categories" component={viewCategories} />
+      			<Route path="/Browse/Authors" component={viewAuthors} />
+      			<Route path="/Browse/Books and magazines" component={viewSources} />
+      			<Route path="/Browse/Categories" component={viewCategories} />
+            <Route path="/page" component={Page} />
           </Switch>
         </div>
       </div>

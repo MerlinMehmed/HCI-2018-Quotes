@@ -25,16 +25,16 @@ class viewSources extends Component {
 				</div>
 				<div className="col-sm-10 view" id="books">
 					<ul>
-						<li><a href="url">Дневникът на Ане Франк</a></li>
-						<li><a href="url">Здрач</a></li>
-						<li><a href="url">Отнесени от вихъра</a></li>
-						<li><a href="url">Мисли и забогатявай</a></li>
-						<li><a href="url">Шифърът на Леонардо</a></li>
-						<li><a href="url">Алхимикът</a></li>
-						<li><a href="url">Властелинът на пръстените</a></li>
-						<li><a href="url">Хари Потър</a></li>
-						<li><a href="url">Да убиеш присмехулник</a></li>
-						<li><a href="url">Гордост и предразсъдъци</a></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Дневникът на Ане Франк</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Здрач</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Отнесени от вихъра</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Мисли и забогатявай</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Шифърът на Леонардо</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Алхимикът</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Властелинът на пръстените</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Хари Потър</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Да убиеш присмехулник</Link></li>
+						<li><Link to="/page" className="nav-link" activeClassName="active">Гордост и предразсъдъци</Link></li>
 					</ul>
 				</div>
 			</div>
