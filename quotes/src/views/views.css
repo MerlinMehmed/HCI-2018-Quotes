@@ -1,0 +1,25 @@
+h1.well {
+	background-color:#00D681;
+}
+			
+h1 {
+	color:white;}
+		
+div.well {
+	background-color:#F4F3DB}
+
+button {
+	color:white;
+	background-color:#00D681;
+	border-radius: 12px;
+	font-size: 18px;
+	padding: 12px 28px;
+}
+
+.space {
+	height: 100px;
+}
+
+ul {
+	list-style-type:none;
+}

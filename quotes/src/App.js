@@ -5,6 +5,9 @@ import Home from "./Home";
 import Login from "./forms/Login";
 import Register from "./forms/Register";
 import AddQuote from "./forms/AddQuote";
+import viewAuthors from "./views/viewAuthors";
+import viewSources from "./views/viewSources";
+import viewCategories from "./views/viewCategories";
 import AddPersonalQuote from "./forms/AddPersonalQuote";
 import { Switch, Route } from "react-router-dom";
 
@@ -21,6 +24,9 @@ class App extends Component {
             <Route path="/register" component={Register} />
             <Route path="/addQuote" component={AddQuote} />
             <Route path="/addPersonalQuote" component={AddPersonalQuote} />
+			<Route path="/Browse/Authors" component={viewAuthors} />
+			<Route path="/Browse/Books and magazines" component={viewSources} />
+			<Route path="/Browse/Categories" component={viewCategories} />
           </Switch>
         </div>
       </div>

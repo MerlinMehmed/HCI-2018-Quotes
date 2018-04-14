@@ -21,9 +21,9 @@ class Navbar extends Component {
                             <div className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Browse</a>
                                 <div className="dropdown-menu">
-                                    <a className="dropdown-item" href="#">Authors</a>
-                                    <a className="dropdown-item" href="#">Books and magazines</a>
-                                    <a className="dropdown-item" href="#">Categories</a>
+									<Link to="/Browse/Authors" className="nav-link dropdown-item" activeClassName="active">Authors</Link>
+									<Link to="/Browse/Books and magazines" className="nav-link dropdown-item" activeClassName="active">Books and magazines</Link>
+									<Link to="/Browse/Categories" className="nav-link dropdown-item" activeClassName="active">Categories</Link>
                                 </div>
                             </div>
                         </li>
