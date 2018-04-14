@@ -4,16 +4,6 @@ h1 {
 div.well {
 	background-color:#F4F3DB}
 
-.button {
-	color: white;
-	background-color:#8FD8D2;
-	border-radius: 12px;
-	border-color: #8FD8D2;
-	font-size: 18px;
-	padding: 12px 28px;
-	margin: 3px;
-}
-
 .space {
 	height: 100px;
 }
@@ -32,16 +22,4 @@ ul {
 
 .view {
 	float: right;
-}
-
-.link {
-  color: #FFFFFF;
-  display: block;
-  height: 100%;
-  width: 100%;
-}
-
-.link:hover {
-   color: #FFFFFF;
-   text-decoration: none;
 }

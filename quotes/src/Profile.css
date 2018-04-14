@@ -1,0 +1,32 @@
+.top-margin {
+    margin-top: 20px;
+}
+
+.quotes .quote-body {
+    left: 41%;
+    width: 550px;
+}
+
+.profile-img {
+    width: 200px;
+}
+
+.btn-add {
+    width: 250px;
+}
+
+.nav-vertical a {
+    color: inherit;
+}
+
+.nav-vertical .nav-item {
+    border: 1px solid #dee2e6;
+}
+
+.nav-vertical a.active {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
+}

@@ -5,11 +5,12 @@ import "./Quote.css";
 class Quote extends Component {
 
     likeQuote() {
-        var currentState = document.getElementById("heart").style.color;
-        if(currentState == "red") {
-            document.getElementById("heart").style.color = "white";
+        var heart = this.refs.heart;
+        var currentState = heart.style.color;
+        if(currentState === "red") {
+            heart.style.color = "white";
         } else {
-            document.getElementById("heart").style.color = "red";
+            heart.style.color = "red";
         }
     }
 
@@ -40,7 +41,7 @@ class Quote extends Component {
                     <span>
                         <a className="twitter-share-button" href="https://twitter.com/intent/tweet?text=Hello%20world">Tweet</a>
                     </span>
-                    <span id="heart" className="heart" onClick={this.likeQuote}>
+                    <span id="heart" ref="heart" className="heart" onClick={this.likeQuote.bind(this)}>
                         <i className="fa fa-heart"></i>
                     </span>
                 </div>

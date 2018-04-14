@@ -79,12 +79,6 @@ class Navbar extends Component {
                         <li className="nav-item">
                             <Link to="/page" className="nav-link" activeClassName="active">Лични цитати</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link to="/addQuote" className="nav-link" activeClassName="active">Добави цитат</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/addPersonalQuote" className="nav-link" activeClassName="active">Добави личен цитат</Link>
-                        </li>
                     </ul>
                     {rightMenu}
                 </div>

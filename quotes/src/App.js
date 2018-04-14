@@ -10,10 +10,10 @@ import viewSources from "./views/viewSources";
 import viewCategories from "./views/viewCategories";
 import AddPersonalQuote from "./forms/AddPersonalQuote";
 import Page from "./Page";
+import Profile from "./Profile";
 import { Switch, Route } from "react-router-dom";
 
 class App extends Component {
-  // TODO: add head somewhere
   render() {
     return (
       <div>
@@ -29,6 +29,7 @@ class App extends Component {
       			<Route path="/Browse/Books and magazines" component={viewSources} />
       			<Route path="/Browse/Categories" component={viewCategories} />
             <Route path="/page" component={Page} />
+            <Route path="/profile" component={Profile} />
           </Switch>
         </div>
       </div>
