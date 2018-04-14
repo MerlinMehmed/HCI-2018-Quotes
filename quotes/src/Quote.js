@@ -21,7 +21,7 @@ class Quote extends Component {
                         <blockquote>{this.props.text}</blockquote>
                         <cite>- {this.props.author}</cite>
                     </div>
-                    <img className="quote-img" src="images/ocean.png" width="600px" />
+                    <img className="quote-img" src="images/ocean.png"/>
                 </div>
                 <div className="quote-bar" width="600px">
                     <span className="dropdown">
