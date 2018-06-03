@@ -1,34 +1,24 @@
 import React, { Component } from "react";
 
 class AddPersonalQuote extends Component {
+    constructor(props) {
+        super(props);
+        this.setQuotesToSession();
+    }
 
-    addPersonalQuote() {
-        console.log("first");
-
-        let quote = {
-            "personalQuotes": [
-            {"content": this.refs.content.value}
-            ]
-        };  
-        console.log("writing");
-        let quoteJson = JSON.stringify(quote);
-        console.log("bla " + quoteJson);
-        
-        var storage = window.localStorage;
-
-        var quotes = JSON.parse(storage.getItem("quotes"));
-        if(quotes != null) {
-            quotes['personalQuotes'].push(quoteJson);    
+    setQuotesToSession() {
+        let storedQuotes = sessionStorage.getItem("personal");
+        if(storedQuotes == null) {
+            window.sessionStorage.setItem("personal", JSON.stringify([]));
         }
-        storage.setItem("quotes", quoteJson);
+    }
 
-        console.log(quotes.toString());
-        
-        console.log("done");
-
-        var qu = storage.getItem("quotes");
-
-        console.log("we got: " + qu.toString());
+    addQuote() {
+        let storedQuotes = JSON.parse(sessionStorage.getItem("personal"));
+        storedQuotes.push({
+            text:"Вие никога няма да можете да решите проблема, ако продължавате да мислите по същия начин, който ви е причинил този проблем.",
+            author:sessionStorage.getItem("username")});
+        window.sessionStorage.setItem("personal", JSON.stringify(storedQuotes));
     }
 
     render() {
@@ -48,7 +38,7 @@ class AddPersonalQuote extends Component {
                         <div className="form-group">
                             <label>*Задължителни полета</label>
                         </div>
-                        <button type="submit" className="btn btn-info btn-width" onClick={this.addPersonalQuote.bind(this)}>Добавяне</button>
+                        <button type="submit" className="btn btn-info btn-width" onClick={this.addQuote}>Добавяне</button>
                     </form>
                 </div>
             </div>
