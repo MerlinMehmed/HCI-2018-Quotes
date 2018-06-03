@@ -1,6 +1,26 @@
 import React, { Component } from "react";
 
 class AddQuote extends Component {
+    constructor(props) {
+        super(props);
+        this.setQuotesToSession();
+    }
+
+    setQuotesToSession() {
+        let storedQuotes = sessionStorage.getItem("quotes");
+        if(storedQuotes == null) {
+            window.sessionStorage.setItem("quotes", JSON.stringify([]));
+        }
+    }
+
+    addQuote() {
+        let storedQuotes = JSON.parse(sessionStorage.getItem("quotes"));
+        storedQuotes.push({
+            text:"Вие никога няма да можете да решите проблема, ако продължавате да мислите по същия начин, който ви е причинил този проблем.",
+            author:"Алберт Айнщайн"});
+        window.sessionStorage.setItem("quotes", JSON.stringify(storedQuotes));
+    }
+
     render() {
         return (
             <div className="row form-top form-bottom">
@@ -41,7 +61,9 @@ class AddQuote extends Component {
                         <div className="form-group">
                             <label>*Задължителни полета</label>
                         </div>
-                        <button type="submit" className="btn btn-info btn-width">Добавяне</button>
+                        {/*<Home ref={home => this.home = home}/>*/}
+
+                        <button type="button" className="btn btn-info btn-width" onClick={this.addQuote}>Добавяне</button>
                     </form>
                 </div>
             </div>
