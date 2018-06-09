@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./Quote.css";
+import Rating from "./Rating"
 
 class Quote extends Component {
 
@@ -14,27 +15,32 @@ class Quote extends Component {
         }
     }
 
+    rateQuote() {
+
+    }
+
     render() {
         return (
             <div className="quote">
                 <div className="quote-content">
-                    <div className="quote-body">
+                    <span className="quote-body">
                         <blockquote>{this.props.text}</blockquote>
                         <cite>- {this.props.author}</cite>
-                    </div>
-                    <img className="quote-img" src="images/ocean.png"/>
+                    </span>
+                    <img className="quote-img img-responsive" src="images/ocean2.png" responsive/>
                 </div>
                 <div className="quote-bar" width="600px">
-                    <span className="dropdown">
-                        <span className="fa fa-star checked star dropbtn" onClick="rateQuote()"></span>
-                        <span id="rate-quote dropdown-content" className="sth">
-                            <span className="fa fa-star star-rate"></span>
-                            <span className="fa fa-star star-rate"></span>
-                            <span className="fa fa-star star-rate"></span>
-                            <span className="fa fa-star star-rate"></span>
-                            <span className="fa fa-star star-rate"></span>
-                        </span>
-                    </span>
+                    {/*<span className="dropdown">*/}
+                        {/*<span className="fa fa-star checked star dropbtn" onClick="rateQuote()"></span>*/}
+                        {/*<span id="rate-quote dropdown-content" className="sth">*/}
+                            {/*<span className="fa fa-star star-rate"></span>*/}
+                            {/*<span className="fa fa-star star-rate"></span>*/}
+                            {/*<span className="fa fa-star star-rate"></span>*/}
+                            {/*<span className="fa fa-star star-rate"></span>*/}
+                            {/*<span className="fa fa-star star-rate"></span>*/}
+                        {/*</span>*/}
+                    {/*</span>*/}
+                    <Rating rating="2"/>
                     <span>
                         <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId" width="59" height="20" className="facebook-share" scrolling="no" frameBorder="0" allowTransparency="true"></iframe>
                     </span>

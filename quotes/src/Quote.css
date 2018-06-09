@@ -28,22 +28,29 @@
 }
 
 .quote-content {
+    max-width: 60%;
     position: relative;
+    text-align: center;
 }
 
-.quote-body {
+.quote-content > .quote-body {
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 96%;
+    color: white;
     position: absolute;
     top: 50%;
-    left: 27%;
-    transform: translate(-50%,-50%);
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    max-width: 550px;
-    max-height: 300px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 4px;
 }
 
+.quote-content > .quote-img {
+    max-width: 100%;
+}
 
-.quote-img {
-	width: 600px;
-	max-height: 600px; 
+@media only screen and (max-width: 850px) {
+    .quote-content{
+        max-width: 90%;
+    }
 }

@@ -1,0 +1,78 @@
+/*.react-rater:hover .react-rater-star:hover {*/
+    /*color: #666666;*/
+/*}*/
+
+/*.react-rater:link .react-rater-star {*/
+    /*color: #cccccc;*/
+/*}*/
+
+/*.react-rater:active .react-rater-star:active .react-rater-star:before {*/
+    /*color: #000000;*/
+/*}*/
+
+/*.react-rater {*/
+    /*display: inline-block;*/
+    /*line-height: normal;*/
+/*}*/
+
+/*.react-rater > * {*/
+    /*display: inline-block;*/
+/*}*/
+
+/*.react-rater-star {*/
+    /*cursor: pointer;*/
+    /*position: relative;*/
+/*}*/
+
+/*.react-rater-star .is-active-half:before {*/
+    /*content: '\2605';*/
+    /*position: absolute;*/
+    /*left: 0;*/
+    /*width: 50%;*/
+    /*overflow: hidden;*/
+/*}*/
+
+/*.react-rater-star:disabled {*/
+    /*cursor: default;*/
+/*}*/
+
+/*%visually-hidden {*/
+    /*position: absolute;*/
+    /*overflow: hidden;*/
+    /*clip: rect(0 0 0 0);*/
+    /*height: 1px; width: 1px;*/
+    /*margin: -1px; padding: 0; border: 0;*/
+/*}*/
+
+/*.star-rating {*/
+
+.star-rating__star {
+    display: inline-block;
+    padding: 3px;
+    vertical-align: middle;
+    line-height: 1;
+    font-size: 1.5em;
+    color: #ABABAB;
+    transition: color .2s ease-out;
+}
+
+.star-rating:hover {
+     cursor: pointer;
+ }
+
+.star-rating .is-selected {
+     color: #FFD700;
+ }
+
+.star-rating .is-disabled:hover {
+     cursor: default;
+ }
+/*}*/
+
+.star-rating__checkbox {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px; width: 1px;
+    margin: -1px; padding: 0; border: 0;
+ }
