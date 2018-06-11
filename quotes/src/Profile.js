@@ -6,17 +6,31 @@ import "./Profile.css";
 class Profile extends Component {
     constructor(props) {
         super(props);
-        this.quotes = [];
+        this.favQuotes = [];
+        this.personal = [];
         this.getFavouriteQuotesFromSession();
-        this.state = {favQuotes: this.favQuotes};
+        this.getPersonalQuotesFromSession()
+        this.state = {
+            favQuotes: this.favQuotes,
+            personal: this.personal
+        };
     }
 
     getFavouriteQuotesFromSession() {
         var storedQuotes = sessionStorage.getItem("favourite");
         if(storedQuotes == null) {
-            window.sessionStorage.setItem("favourite", JSON.stringify(this.quotes));
+            window.sessionStorage.setItem("favourite", JSON.stringify(this.favQuotes));
         } else {
             this.favQuotes = JSON.parse(storedQuotes);
+        }
+    }
+
+    getPersonalQuotesFromSession() {
+        var storedQuotes = sessionStorage.getItem("personal");
+        if(storedQuotes == null) {
+            window.sessionStorage.setItem("personal", JSON.stringify(this.personal));
+        } else {
+            this.personal = JSON.parse(storedQuotes);
         }
     }
 
@@ -56,19 +70,22 @@ class Profile extends Component {
                     <div id="favourites" ref="favourites">
                         <h3>Любими цитати</h3>
                         {
-                            this.state.favQuotes ? this.state.favQuotes.reverse().map(
+                            this.state.favQuotes.length ? this.state.favQuotes.reverse().map(
                                 (quote) => (
                                     <Quote text={quote.text.toString()} author={quote.author.toString()}/>
                                 )
-                            ) : []
+                            ) :
+                                <p>Все още нямате любими цитати.</p>
                         }
-                        <Quote text={"Нищо не лекува така добре душата както вълненията, а от вълненията може да ни излекува само душата."} author={"Оскар Уайлд"} />
-                        <Quote text={"Може ли разстоянието наистина да те раздели от приятелите ти... Ако искаш да си с някого, когото обичаш, не си ли вече там при него?"} author={"Ричард Бах"} />
                     </div>
                     <div id="personal" className="hidden" ref="personal">
                         <h3>Лично творчество</h3>
-                        <Quote text={"Запиташ ли се дали си щастлив, веднага спираш да бъдеш."} author={"ПоМЕло"} />
-                        <Quote text={"Щастието не е крайна спирка. То е начин на пътуване."} author={"ПоМЕло"} />
+                        {
+                            this.state.personal.length ? this.state.personal.reverse().map( (quote) => (
+                                <Quote text={quote.text.toString()} author={quote.author.toString()}/>
+                            )) :
+                                <p>Все още нямате добавени цитати.</p>
+                        }
                     </div>
                 </div>
             </div>
