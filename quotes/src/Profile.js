@@ -4,6 +4,22 @@ import { Link } from "react-router-dom";
 import "./Profile.css";
 
 class Profile extends Component {
+    constructor(props) {
+        super(props);
+        this.quotes = [];
+        this.getFavouriteQuotesFromSession();
+        this.state = {favQuotes: this.favQuotes};
+    }
+
+    getFavouriteQuotesFromSession() {
+        var storedQuotes = sessionStorage.getItem("favourite");
+        if(storedQuotes == null) {
+            window.sessionStorage.setItem("favourite", JSON.stringify(this.quotes));
+        } else {
+            this.favQuotes = JSON.parse(storedQuotes);
+        }
+    }
+
     showQuotes(id) {
         const personal = this.refs.personal;
         const favourites = this.refs.favourites;
@@ -39,6 +55,13 @@ class Profile extends Component {
                 <div className="quotes col-md-8">
                     <div id="favourites" ref="favourites">
                         <h3>Любими цитати</h3>
+                        {
+                            this.state.favQuotes ? this.state.favQuotes.reverse().map(
+                                (quote) => (
+                                    <Quote text={quote.text.toString()} author={quote.author.toString()}/>
+                                )
+                            ) : []
+                        }
                         <Quote text={"Нищо не лекува така добре душата както вълненията, а от вълненията може да ни излекува само душата."} author={"Оскар Уайлд"} />
                         <Quote text={"Може ли разстоянието наистина да те раздели от приятелите ти... Ако искаш да си с някого, когото обичаш, не си ли вече там при него?"} author={"Ричард Бах"} />
                     </div>

@@ -4,14 +4,69 @@ import "./Quote.css";
 import Rating from "./Rating"
 
 class Quote extends Component {
+    constructor(props) {
+        super(props);
+        this.setFavouriteQuotesToSession();
+        // this.markLikedQuotes();
+    }
+
+    setFavouriteQuotesToSession() {
+        let storedQuotes = sessionStorage.getItem("favourite");
+        if(storedQuotes == null) {
+            window.sessionStorage.setItem("favourite", JSON.stringify([]));
+        }
+    }
+
+    addFavouriteQuote() {
+        let storedQuotes = JSON.parse(sessionStorage.getItem("favourite"));
+        storedQuotes.push({
+            text: this.props.text,
+            author:this.props.author
+        });
+        window.sessionStorage.setItem("favourite", JSON.stringify(storedQuotes));
+    }
+
+    removeFavouriteQuote() {
+        let storedQuotes = JSON.parse(sessionStorage.getItem("favourite"));
+        var text = this.props.text;
+        storedQuotes = storedQuotes.filter(function(quote) {
+            return quote.text !== text
+        })
+        window.sessionStorage.setItem("favourite", JSON.stringify(storedQuotes));
+    }
 
     likeQuote() {
         var heart = this.refs.heart;
-        var currentState = heart.style.color;
-        if(currentState === "red") {
-            heart.style.color = "white";
+        if(heart.classList.contains("red")) {
+            this.markHeartWhite();
+            this.removeFavouriteQuote();
         } else {
-            heart.style.color = "red";
+            this.markHeartRed();
+            this.addFavouriteQuote();
+        }
+    }
+
+    markHeartRed() {
+        const heart = this.refs.heart;
+        heart.classList.remove("white");
+        heart.classList.add("red");
+    }
+
+    markHeartWhite() {
+        var heart = this.refs.heart;
+        heart.classList.remove("red");
+        heart.classList.add("white");
+    }
+
+    // To-Do: Mark all quotes' heart that are liked red
+    markLikedQuotes() {
+        let storedQuotes = JSON.parse(sessionStorage.getItem("favourite"));
+        let text = this.props.text;
+        let heart = this.refs.heart;
+        if(storedQuotes.filter(function (quote) {
+            quote.text = text;
+        }).size !== 0) {
+            heart.addClass("red");
         }
     }
 

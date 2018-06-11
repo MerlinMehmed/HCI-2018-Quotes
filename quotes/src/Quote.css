@@ -49,6 +49,14 @@
     max-width: 100%;
 }
 
+.red {
+    color: red;
+}
+
+.white {
+    color: white;
+}
+
 @media only screen and (max-width: 850px) {
     .quote-content{
         max-width: 90%;
