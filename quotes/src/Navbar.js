@@ -61,7 +61,7 @@ class Navbar extends Component {
                     </button>
                 </div>
                 <div className="collapse navbar-collapse" id="navbarToggler">
-                    <a className="navbar-brand" href="#">Logo</a>
+                    <a className="navbar-brand" href="/"><img className="logo" src="/images/logo.png"/></a>
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             <Link to="/" className="nav-link" activeClassName="active">Начало</Link>
