@@ -1,8 +1,29 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./views.css";
+import Quote from "../Quote";
+import {filterQuotesBySource, findSources} from "../libs/Utilities";
 
 class viewSources extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {source: null};
+    }
+
+    showQuotes(source) {
+        const authors = this.refs.sources;
+        authors.classList.add("hidden");
+
+        this.state.source = source;
+    }
+
+    showSources() {
+        this.state.source = null;
+
+        var authors = this.refs.sources;
+        authors.classList.remove("hidden");
+    }
+
     render() {
         return (
 			<div className="container col-lg-12 components">
@@ -13,7 +34,7 @@ class viewSources extends Component {
 						</div>
 					</div>
 					<div className="row">
-						<div className="col-sm-12 button">
+						<div className="col-sm-12 button" onClick={this.showSources.bind(this)}>
 							<Link to="/Browse/Books and magazines" className="link" activeClassName="active">Книги и списания</Link>
 						</div>	
 					</div>
@@ -23,20 +44,26 @@ class viewSources extends Component {
 						</div>	
 					</div>
 				</div>
-				<div className="col-sm-10 view" id="books">
+				<div className="col-sm-10 view" id="books" ref="sources">
 					<ul>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Дневникът на Ане Франк</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Здрач</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Отнесени от вихъра</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Мисли и забогатявай</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Шифърът на Леонардо</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Алхимикът</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Властелинът на пръстените</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Хари Потър</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Да убиеш присмехулник</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Гордост и предразсъдъци</Link></li>
+                        {
+                            findSources().map(
+                                (source) => (
+                                    <li onClick={() => this.showQuotes(source)}><a href="#" className="quote-link" activeClassName="active">{source}</a> </li>
+                                )
+                            )
+                        }
 					</ul>
 				</div>
+                <div className="col-sm-10 view">
+                    {
+                        filterQuotesBySource(this.state.source).map(
+                            (quote) => (
+                                <Quote text={quote.content} author={quote.author}/>
+                            )
+                        )
+                    }
+                </div>
 			</div>
         );
     }

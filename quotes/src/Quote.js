@@ -78,7 +78,7 @@ class Quote extends Component {
                         <blockquote>{this.props.text}</blockquote>
                         <cite>- {this.props.author}</cite>
                     </span>
-                    <img className="quote-img img-responsive" src="images/ocean2.png" responsive/>
+                    <img className="quote-img img-responsive" src="/images/ocean2.png" responsive/>
                 </div>
                 <div className="quote-bar" width="600px">
                     <Rating rating="2"/>

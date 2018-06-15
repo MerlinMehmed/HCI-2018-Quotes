@@ -1,8 +1,29 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./views.css";
+import Quote from "../Quote";
+import {filterQuotesByCategory, findCategories} from "../libs/Utilities";
 
 class viewCategories extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {category: null};
+    }
+
+    showQuotes(category) {
+        const authors = this.refs.categories;
+        authors.classList.add("hidden");
+
+        this.state.category = category;
+    }
+
+    showCategories() {
+        this.state.category = null;
+
+        var authors = this.refs.categories;
+        authors.classList.remove("hidden");
+    }
+
     render() {
         return (
 			<div className="container col-lg-12 components">
@@ -18,25 +39,31 @@ class viewCategories extends Component {
 						</div>	
 					</div>
 					<div className="row">
-						<div className="col-sm-12 button">
+						<div className="col-sm-12 button" onClick={this.showCategories.bind(this)}>
 							<Link to="/Browse/Categories" className="link" activeClassName="active">Категории</Link>
 						</div>	
 					</div>
 				</div>
-				<div className="col-sm-10 view" id="categories">
+				<div className="col-sm-10 view" id="categories" ref="categories">
 					<ul>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Любов</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Приятелство</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Живот</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Щастие</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Тъга</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Време</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Добро</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Доверие</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Егоизъм</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Знание</Link></li>
+                        {
+                            findCategories().map(
+                                (category) => (
+                                    <li onClick={() => this.showQuotes(category)}><a href="#" className="quote-link" activeClassName="active">{category}</a> </li>
+                                )
+                            )
+                        }
 					</ul>
 				</div>
+                <div className="col-sm-10 view">
+                    {
+                        filterQuotesByCategory(this.state.category).map(
+                            (quote) => (
+                                <Quote text={quote.content} author={quote.author}/>
+                            )
+                        )
+                    }
+                </div>
 			</div>
         );
     }

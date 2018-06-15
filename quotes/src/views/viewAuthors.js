@@ -1,14 +1,35 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./views.css";
+import Quote from "../Quote";
+import {findAuthors, filterQuotesByAuthor} from "../libs/Utilities"
 
 class viewAuthors extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {author: null};
+    }
+
+    showQuotes(author) {
+        const authors = this.refs.authors;
+        authors.classList.add("hidden");
+
+        this.state.author = author;
+    }
+
+    showAuthors() {
+        this.state.author = null;
+
+        var authors = this.refs.authors;
+        authors.classList.remove("hidden");
+    }
+
     render() {
         return (
 			<div className="container col-lg-12 components">
 				<div className="col-sm-2 buttons">
 					<div className="row">
-						<div className="col-sm-12 button">
+						<div className="col-sm-12 button" onClick={this.showAuthors.bind(this)}>
 							<Link to="/Browse/Authors" className="link" activeClassName="active">Автори</Link>
 						</div>
 					</div>
@@ -23,19 +44,26 @@ class viewAuthors extends Component {
 						</div>	
 					</div>
 				</div>
-				<div className="col-sm-10 view" id="authors">
+				<div className="col-sm-10 view" id="authors" ref="authors">
 					<ul>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Алберт Айнщайн</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Антоан дьо Сент Екзюпери</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Волтер</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Данте Алигиери</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Йохан фон Гьоте</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Марк Твен</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Ричард Бах</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Уилям Шекспир</Link></li>
-						<li><Link to="/page" className="nav-link" activeClassName="active">Ърнест Милър Хемингуей</Link></li>
+                        {
+                            findAuthors().map(
+                                (author) => (
+                                    <li onClick={() => this.showQuotes(author)}><a href="#" className="quote-link" activeClassName="active">{author}</a> </li>
+                                )
+                            )
+                        }
 					</ul>
 				</div>
+				<div className="col-sm-10 view">
+                    {
+                        filterQuotesByAuthor(this.state.author).map(
+                            (quote) => (
+                                <Quote text={quote.content} author={quote.author}/>
+                            )
+                        )
+                    }
+                </div>
 			</div>
         );
     }

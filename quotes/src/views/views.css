@@ -23,3 +23,7 @@ ul {
 .view {
 	float: right;
 }
+
+.quote-link {
+	padding-left: 10px;
+}
