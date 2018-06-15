@@ -2,9 +2,6 @@ import quotes from "./quotes.json"
 
 let allQuotes = quotes.quotes;
 
-export function show() {
-    console.log(allQuotes)
-}
 
 export function filterQuotesByAuthor(authorName) {
     return allQuotes.filter(quote => quote.author === authorName)
@@ -16,6 +13,10 @@ export function filterQuotesBySource(sourceName) {
 
 export function filterQuotesByCategory(categoryName) {
     return allQuotes.filter(quote => quote.category.includes(categoryName))
+}
+
+export function findAllQuotes() {
+    return allQuotes;
 }
 
 export function findAuthors() {
