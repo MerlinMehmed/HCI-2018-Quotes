@@ -25,7 +25,7 @@ class Page extends Component {
                 {
                     this.state.quotes.reverse().map(
                         (quote) => (
-                        <Quote text={quote.text.toString()} author={quote.author.toString()}/>
+                        <Quote text={quote.text.toString()} author={quote.author.toString()} img={quote.img}/>
                         )
                     )
                 }

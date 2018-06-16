@@ -59,7 +59,7 @@ class viewCategories extends Component {
                     {
                         filterQuotesByCategory(this.state.category).map(
                             (quote) => (
-                                <Quote text={quote.content} author={quote.author}/>
+                                <Quote text={quote.content} author={quote.author} img={quote.img}/>
                             )
                         )
                     }

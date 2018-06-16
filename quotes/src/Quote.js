@@ -21,7 +21,8 @@ class Quote extends Component {
         let storedQuotes = JSON.parse(sessionStorage.getItem("favourite"));
         storedQuotes.push({
             text: this.props.text,
-            author:this.props.author
+            author:this.props.author,
+            img: this.props.img
         });
         window.sessionStorage.setItem("favourite", JSON.stringify(storedQuotes));
     }
@@ -78,7 +79,7 @@ class Quote extends Component {
                         <blockquote>{this.props.text}</blockquote>
                         <cite>- {this.props.author}</cite>
                     </span>
-                    <img className="quote-img img-responsive" src="/images/ocean2.png" responsive/>
+                    <img className="quote-img img-responsive" src={this.props.img || "/images/ocean2.png"} responsive="true"/>
                 </div>
                 <div className="quote-bar" width="600px">
                     <Rating rating="2"/>

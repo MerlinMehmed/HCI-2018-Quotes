@@ -47,6 +47,7 @@
 
 .quote-content > .quote-img {
     max-width: 100%;
+    border: 7px solid #cdf4f1;
 }
 
 .red {
