@@ -4,7 +4,7 @@ import "./views.css";
 import Quote from "../Quote";
 import {findAuthors, filterQuotesByAuthor} from "../libs/Utilities"
 
-class viewAuthors extends Component {
+class ViewAuthors extends Component {
     constructor(props) {
         super(props);
         this.state = {author: null};
@@ -69,4 +69,4 @@ class viewAuthors extends Component {
     }
 }
 
-export default viewAuthors;
+export default ViewAuthors;

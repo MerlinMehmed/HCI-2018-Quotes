@@ -1,5 +1,6 @@
 h1 {
-	color:white;}
+	color:white;
+}
 		
 div.well {
 	background-color:#F4F3DB}
@@ -32,4 +33,8 @@ ul {
 
 .quote-link:hover {
 	color: black;
+}
+
+h3 {
+	padding: 0.5em;
 }

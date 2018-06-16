@@ -46,7 +46,7 @@ export function findSources() {
     allQuotes.forEach(function (quote) {
         let source = quote.source;
         if(!sources.includes(source)) {
-            sources .push(source);
+            sources.push(source);
         }
     });
     return sources;

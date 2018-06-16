@@ -4,7 +4,7 @@ import "./views.css";
 import Quote from "../Quote";
 import {filterQuotesByCategory, findCategories} from "../libs/Utilities";
 
-class viewCategories extends Component {
+class ViewCategories extends Component {
     constructor(props) {
         super(props);
         this.state = {category: null};
@@ -69,4 +69,4 @@ class viewCategories extends Component {
     }
 }
 
-export default viewCategories;
+export default ViewCategories;

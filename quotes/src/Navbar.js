@@ -19,8 +19,8 @@ class Navbar extends Component {
                 <ul className="navbar-nav custom-right ml-auto">
                     <li className="nav-item">
                         <div className="search-container">
-                            <form action="/">
-                                <input type="text" placeholder="Търси.." name="search" id="search-input" />
+                            <form action="/Browse/Search">
+                                <input type="text" ref="searchInput" placeholder="Търси.." name="search" id="search-input" />
                                 <button type="submit"><i className="fa fa-search"></i></button>
                             </form>
                         </div>
@@ -38,8 +38,8 @@ class Navbar extends Component {
                 <ul className="navbar-nav custom-right ml-auto">
                     <li className="nav-item">
                         <div className="search-container">
-                            <form action="/">
-                                <input type="text" placeholder="Търси.." name="search" id="search-input" />
+                            <form action="/Browse/Search">
+                                <input type="text" ref="searchInput" placeholder="Търси.." name="search" id="search-input" />
                                 <button type="submit"><i className="fa fa-search"></i></button>
                             </form>
                         </div>
@@ -61,7 +61,7 @@ class Navbar extends Component {
                     </button>
                 </div>
                 <div className="collapse navbar-collapse" id="navbarToggler">
-                    <a className="navbar-brand" href="/"><img className="logo" src="/images/logo.png"/></a>
+                    <a className="navbar-brand" href="/"><img className="logo" src="/images/logo.png" /></a>
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             <NavLink to="/" className="nav-link" activeClassName="active">Начало</NavLink>

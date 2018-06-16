@@ -5,13 +5,14 @@ import Home from "./Home";
 import Login from "./forms/Login";
 import Register from "./forms/Register";
 import AddQuote from "./forms/AddQuote";
-import viewAuthors from "./views/viewAuthors";
-import viewSources from "./views/viewSources";
-import viewCategories from "./views/viewCategories";
+import ViewAuthors from "./views/viewAuthors";
+import ViewSources from "./views/viewSources";
+import ViewCategories from "./views/viewCategories";
 import AddPersonalQuote from "./forms/AddPersonalQuote";
 import Page from "./Page";
 import Profile from "./Profile";
 import { Switch, Route } from "react-router-dom";
+import ViewSearch from "./views/viewSearch";
 
 class App extends Component {
   render() {
@@ -24,9 +25,10 @@ class App extends Component {
             <Route path="/register" component={Register} />
             <Route path="/addQuote" component={AddQuote} />
             <Route path="/addPersonalQuote" component={AddPersonalQuote} />
-      			<Route path="/Browse/Authors" component={viewAuthors} />
-      			<Route path="/Browse/Books and magazines" component={viewSources} />
-      			<Route path="/Browse/Categories" component={viewCategories} />
+      			<Route path="/Browse/Authors" component={ViewAuthors} />
+      			<Route path="/Browse/Books and magazines" component={ViewSources} />
+      			<Route path="/Browse/Categories" component={ViewCategories} />
+      			<Route path="/Browse/Search" component={ViewSearch} />
             <Route path="/page" component={Page} />
             <Route path="/profile" component={Profile} />
           </Switch>

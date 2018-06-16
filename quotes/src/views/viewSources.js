@@ -4,7 +4,7 @@ import "./views.css";
 import Quote from "../Quote";
 import {filterQuotesBySource, findSources} from "../libs/Utilities";
 
-class viewSources extends Component {
+class ViewSources extends Component {
     constructor(props) {
         super(props);
         this.state = {source: null};
@@ -69,4 +69,4 @@ class viewSources extends Component {
     }
 }
 
-export default viewSources;
+export default ViewSources;
