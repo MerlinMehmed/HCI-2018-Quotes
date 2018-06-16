@@ -7,12 +7,15 @@ class Quote extends Component {
     constructor(props) {
         super(props);
         this.setFavouriteQuotesToSession();
-        // this.markLikedQuotes();
+    }
+
+    componentDidMount() {
+        this.markLikedQuotes();
     }
 
     setFavouriteQuotesToSession() {
         let storedQuotes = sessionStorage.getItem("favourite");
-        if(storedQuotes == null) {
+        if (storedQuotes == null) {
             window.sessionStorage.setItem("favourite", JSON.stringify([]));
         }
     }
@@ -21,7 +24,7 @@ class Quote extends Component {
         let storedQuotes = JSON.parse(sessionStorage.getItem("favourite"));
         storedQuotes.push({
             text: this.props.text,
-            author:this.props.author,
+            author: this.props.author,
             img: this.props.img
         });
         window.sessionStorage.setItem("favourite", JSON.stringify(storedQuotes));
@@ -30,7 +33,7 @@ class Quote extends Component {
     removeFavouriteQuote() {
         let storedQuotes = JSON.parse(sessionStorage.getItem("favourite"));
         var text = this.props.text;
-        storedQuotes = storedQuotes.filter(function(quote) {
+        storedQuotes = storedQuotes.filter(function (quote) {
             return quote.text !== text
         })
         window.sessionStorage.setItem("favourite", JSON.stringify(storedQuotes));
@@ -38,7 +41,7 @@ class Quote extends Component {
 
     likeQuote() {
         var heart = this.refs.heart;
-        if(heart.classList.contains("red")) {
+        if (heart.classList.contains("red")) {
             this.markHeartWhite();
             this.removeFavouriteQuote();
         } else {
@@ -59,15 +62,11 @@ class Quote extends Component {
         heart.classList.add("white");
     }
 
-    // To-Do: Mark all quotes' heart that are liked red
     markLikedQuotes() {
-        let storedQuotes = JSON.parse(sessionStorage.getItem("favourite"));
-        let text = this.props.text;
-        let heart = this.refs.heart;
-        if(storedQuotes.filter(function (quote) {
-            quote.text = text;
-        }).size !== 0) {
-            heart.addClass("red");
+        const storedQuotes = JSON.parse(sessionStorage.getItem("favourite"));
+        const text = this.props.text;
+        if (storedQuotes.find(x => x.text === text)) {
+            this.markHeartRed();
         }
     }
 
@@ -79,10 +78,10 @@ class Quote extends Component {
                         <blockquote>{this.props.text}</blockquote>
                         <cite>- {this.props.author}</cite>
                     </span>
-                    <img className="quote-img img-responsive" src={this.props.img || "/images/ocean2.png"} responsive="true"/>
+                    <img className="quote-img img-responsive" src={this.props.img || "/images/ocean2.png"} responsive="true" />
                 </div>
                 <div className="quote-bar" width="600px">
-                    <Rating rating="2"/>
+                    <Rating rating="2" />
                     <span>
                         <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId" width="59" height="20" className="facebook-share" scrolling="no" frameBorder="0" allowTransparency="true"></iframe>
                     </span>

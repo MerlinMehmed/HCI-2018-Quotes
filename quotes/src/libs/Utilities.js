@@ -2,7 +2,6 @@ import quotes from "./quotes.json"
 
 let allQuotes = quotes.quotes;
 
-
 export function filterQuotesByAuthor(authorName) {
     return allQuotes.filter(quote => quote.author === authorName)
 }
