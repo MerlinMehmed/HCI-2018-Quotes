@@ -14,11 +14,11 @@ class viewSources extends Component {
         const authors = this.refs.sources;
         authors.classList.add("hidden");
 
-        this.state.source = source;
+        this.setState({source: source});
     }
 
     showSources() {
-        this.state.source = null;
+        this.setState({source: null});
 
         var authors = this.refs.sources;
         authors.classList.remove("hidden");
@@ -26,7 +26,7 @@ class viewSources extends Component {
 
     render() {
         return (
-			<div className="container col-lg-12 components">
+			<div className="container components">
 				<div className="col-sm-2 buttons">
 					<div className="row">
 						<div className="col-sm-12 button">
@@ -49,7 +49,7 @@ class viewSources extends Component {
                         {
                             findSources().map(
                                 (source) => (
-                                    <li onClick={() => this.showQuotes(source)}><a href="#" className="quote-link" activeClassName="active">{source}</a> </li>
+                                    <li><a onClick={() => this.showQuotes(source)} href="#" className="quote-link" activeClassName="active">{source}</a> </li>
                                 )
                             )
                         }

@@ -1,0 +1,25 @@
+.banner {
+    background: url(/images/146697.jpg) no-repeat center top;
+    background-position-x: center;
+    background-position-y: top;
+    background-size: auto auto;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    min-height: 500px;
+}
+
+.banner-text {
+    color: white;
+    font-size: 2em;
+    padding-top: 4em;
+    padding-bottom: 4em;
+    font-weight: bold;
+}
+
+.banner-text h1 {
+    font-weight: bold;
+    text-decoration: underline;
+}

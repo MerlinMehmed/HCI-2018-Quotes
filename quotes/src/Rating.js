@@ -36,6 +36,7 @@ class Rating extends Component {
 
             stars.push(
                 <span
+                    key = {i}
                     className={className}
                     onClick={this.rate.bind(this, i)}>
                     ★

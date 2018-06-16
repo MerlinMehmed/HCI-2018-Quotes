@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Quote from "./Quote";
-import { Link } from "react-router-dom";
 import "./Profile.css";
+import NavLink from "react-router-dom/NavLink";
 
 class Profile extends Component {
     constructor(props) {
@@ -18,7 +18,7 @@ class Profile extends Component {
 
     getFavouriteQuotesFromSession() {
         var storedQuotes = sessionStorage.getItem("favourite");
-        if(storedQuotes == null) {
+        if (storedQuotes == null) {
             window.sessionStorage.setItem("favourite", JSON.stringify(this.favQuotes));
         } else {
             this.favQuotes = JSON.parse(storedQuotes);
@@ -27,7 +27,7 @@ class Profile extends Component {
 
     getPersonalQuotesFromSession() {
         var storedQuotes = sessionStorage.getItem("personal");
-        if(storedQuotes == null) {
+        if (storedQuotes == null) {
             window.sessionStorage.setItem("personal", JSON.stringify(this.personal));
         } else {
             this.personal = JSON.parse(storedQuotes);
@@ -49,43 +49,45 @@ class Profile extends Component {
 
     render() {
         return (
-            <div className="top-margin row">
-                <div className="col-md-4">
-                    <h2>ПоМЕло</h2>
-                    <img src="images/profile.png" className="profile-img" />
-                    <p className="top-margin"><em>Любим автор: </em>Джон Стайнбек</p>
-                    <p><em>Любим цитат: </em>"Запиташ ли се дали си щастлив, веднага спираш да бъдеш."</p>
-                    <ul className="nav nav-tabs flex-column nav-vertical">
-                        <li className="nav-item" onClick={() => this.showQuotes("favourites")}><a href="#favourites" className="nav-link active" data-toggle="tab" role="tab">Любими цитати</a></li>
-                        <li className="nav-item" onClick={() => this.showQuotes("personal")}><a href="#personal" className="nav-link" data-toggle="tab" role="tab">Лично творчество</a></li>
-                    </ul>
-                    <div className="button btn-add top-margin">
-                        <Link to="/addQuote" className="link" activeClassName="active">Добави цитат</Link>
+            <div className="container">
+                <div className="top-margin row">
+                    <div className="col-md-4">
+                        <h2>ПоМЕло</h2>
+                        <img src="images/profile.png" className="profile-img" />
+                        <p className="top-margin"><em>Любим автор: </em>Джон Стайнбек</p>
+                        <p><em>Любим цитат: </em>"Запиташ ли се дали си щастлив, веднага спираш да бъдеш."</p>
+                        <ul className="nav nav-tabs flex-column nav-vertical">
+                            <li className="nav-item" onClick={() => this.showQuotes("favourites")}><a href="#favourites" className="nav-link active" data-toggle="tab" role="tab">Любими цитати</a></li>
+                            <li className="nav-item" onClick={() => this.showQuotes("personal")}><a href="#personal" className="nav-link" data-toggle="tab" role="tab">Лично творчество</a></li>
+                        </ul>
+                        <div className="button btn-add top-margin">
+                            <NavLink to="/addQuote" className="link" activeClassName="active">Добави цитат</NavLink>
+                        </div>
+                        <div className="button btn-add">
+                            <NavLink to="/addPersonalQuote" className="link" activeClassName="active">Добави личен цитат</NavLink>
+                        </div>
                     </div>
-                    <div className="button btn-add">
-                        <Link to="/addPersonalQuote" className="link" activeClassName="active">Добави личен цитат</Link>
-                    </div>
-                </div>
-                <div className="quotes col-md-8">
-                    <div id="favourites" ref="favourites">
-                        <h3>Любими цитати</h3>
-                        {
-                            this.state.favQuotes.length ? this.state.favQuotes.reverse().map(
-                                (quote) => (
-                                    <Quote text={quote.text.toString()} author={quote.author.toString()}/>
-                                )
-                            ) :
-                                <p>Все още нямате любими цитати.</p>
-                        }
-                    </div>
-                    <div id="personal" className="hidden" ref="personal">
-                        <h3>Лично творчество</h3>
-                        {
-                            this.state.personal.length ? this.state.personal.reverse().map( (quote) => (
-                                <Quote text={quote.text.toString()} author={quote.author.toString()}/>
-                            )) :
-                                <p>Все още нямате добавени цитати.</p>
-                        }
+                    <div className="quotes col-md-8">
+                        <div id="favourites" ref="favourites">
+                            <h3>Любими цитати</h3>
+                            {
+                                this.state.favQuotes.length ? this.state.favQuotes.reverse().map(
+                                    (quote, index) => (
+                                        <Quote key={index} text={quote.text.toString()} author={quote.author.toString()} />
+                                    )
+                                ) :
+                                    <p>Все още нямате любими цитати.</p>
+                            }
+                        </div>
+                        <div id="personal" className="hidden" ref="personal">
+                            <h3>Лично творчество</h3>
+                            {
+                                this.state.personal.length ? this.state.personal.reverse().map((quote) => (
+                                    <Quote text={quote.text.toString()} author={quote.author.toString()} />
+                                )) :
+                                    <p>Все още нямате добавени цитати.</p>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>

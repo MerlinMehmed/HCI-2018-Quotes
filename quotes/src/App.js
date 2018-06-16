@@ -18,7 +18,6 @@ class App extends Component {
     return (
       <div>
         <Navbar />
-        <div className="container">
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
@@ -31,7 +30,6 @@ class App extends Component {
             <Route path="/page" component={Page} />
             <Route path="/profile" component={Profile} />
           </Switch>
-        </div>
       </div>
     );
   }

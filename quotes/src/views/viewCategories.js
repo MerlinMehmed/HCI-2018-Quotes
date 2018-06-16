@@ -14,11 +14,11 @@ class viewCategories extends Component {
         const authors = this.refs.categories;
         authors.classList.add("hidden");
 
-        this.state.category = category;
+        this.setState({category: category});
     }
 
     showCategories() {
-        this.state.category = null;
+        this.setState({category: null});
 
         var authors = this.refs.categories;
         authors.classList.remove("hidden");
@@ -26,7 +26,7 @@ class viewCategories extends Component {
 
     render() {
         return (
-			<div className="container col-lg-12 components">
+			<div className="container components">
 				<div className="col-sm-2 buttons">
 					<div className="row">
 						<div className="col-sm-12 button">
@@ -49,7 +49,7 @@ class viewCategories extends Component {
                         {
                             findCategories().map(
                                 (category) => (
-                                    <li onClick={() => this.showQuotes(category)}><a href="#" className="quote-link" activeClassName="active">{category}</a> </li>
+                                    <li><a href="#" onClick={() => this.showQuotes(category)} className="quote-link" activeClassName="active">{category}</a> </li>
                                 )
                             )
                         }

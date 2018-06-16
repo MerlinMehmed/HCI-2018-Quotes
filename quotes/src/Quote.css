@@ -14,13 +14,13 @@
 	background: none;
 }
 
-.sth {
-	display: none;
-}
-
 .facebook-share {
 	border: none;
 	overflow: hidden;
+}
+
+.quote {
+    margin: 1em;
 }
 
 .quote-bar > span {
@@ -28,7 +28,7 @@
 }
 
 .quote-content {
-    max-width: 60%;
+    max-width: 80%;
     position: relative;
     text-align: center;
 }

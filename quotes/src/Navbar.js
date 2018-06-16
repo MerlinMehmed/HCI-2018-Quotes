@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 class Navbar extends Component {
@@ -26,10 +26,10 @@ class Navbar extends Component {
                         </div>
                     </li>
                     <li className="nav-item">
-                        <Link to="/profile" className="nav-link" activeClassName="active">Здравей, {this.username}</Link>
+                        <NavLink to="/profile" className="nav-link" activeClassName="active">Здравей, {this.username}</NavLink>
                     </li>
                     <li className="nav-item">
-                        <button className="nav-link logout-btn" activeClassName="active" onClick={this.logout}>Изход</button>
+                        <button className="nav-link logout-btn" onClick={this.logout}>Изход</button>
                     </li>
                 </ul>
             );
@@ -45,10 +45,10 @@ class Navbar extends Component {
                         </div>
                     </li>
                     <li className="nav-item">
-                        <Link to="/login" className="nav-link" activeClassName="active">Влез</Link>
+                        <NavLink to="/login" className="nav-link" activeClassName="active">Влез</NavLink>
                     </li>
                     <li className="nav-item">
-                        <Link to="/register" className="nav-link" activeClassName="active">Регистрация</Link>
+                        <NavLink to="/register" className="nav-link" activeClassName="active">Регистрация</NavLink>
                     </li>
                 </ul>
             );
@@ -64,20 +64,20 @@ class Navbar extends Component {
                     <a className="navbar-brand" href="/"><img className="logo" src="/images/logo.png"/></a>
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link to="/" className="nav-link" activeClassName="active">Начало</Link>
+                            <NavLink to="/" className="nav-link" activeClassName="active">Начало</NavLink>
                         </li>
                         <li className="nav-item">
                             <div className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Цитати</a>
                                 <div className="dropdown-menu">
-                                    <Link to="/Browse/Authors" className="nav-link dropdown-item" activeClassName="active">Автори</Link>
-                                    <Link to="/Browse/Books and magazines" className="nav-link dropdown-item" activeClassName="active">Книги и списания</Link>
-                                    <Link to="/Browse/Categories" className="nav-link dropdown-item" activeClassName="active">Категории</Link>
+                                    <NavLink to="/Browse/Authors" className="nav-link dropdown-item" activeClassName="active">Автори</NavLink>
+                                    <NavLink to="/Browse/Books and magazines" className="nav-link dropdown-item" activeClassName="active">Книги и списания</NavLink>
+                                    <NavLink to="/Browse/Categories" className="nav-link dropdown-item" activeClassName="active">Категории</NavLink>
                                 </div>
                             </div>
                         </li>
                         <li className="nav-item">
-                            <Link to="/page" className="nav-link" activeClassName="active">Лични цитати</Link>
+                            <NavLink to="/page" className="nav-link" activeClassName="active">Лични цитати</NavLink>
                         </li>
                     </ul>
                     {rightMenu}

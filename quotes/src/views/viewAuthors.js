@@ -14,11 +14,11 @@ class viewAuthors extends Component {
         const authors = this.refs.authors;
         authors.classList.add("hidden");
 
-        this.state.author = author;
+        this.setState({author: author});
     }
 
     showAuthors() {
-        this.state.author = null;
+        this.setState({author: null});
 
         var authors = this.refs.authors;
         authors.classList.remove("hidden");
@@ -26,7 +26,7 @@ class viewAuthors extends Component {
 
     render() {
         return (
-			<div className="container col-lg-12 components">
+			<div className="container components">
 				<div className="col-sm-2 buttons">
 					<div className="row">
 						<div className="col-sm-12 button" onClick={this.showAuthors.bind(this)}>
@@ -49,7 +49,7 @@ class viewAuthors extends Component {
                         {
                             findAuthors().map(
                                 (author) => (
-                                    <li onClick={() => this.showQuotes(author)}><a href="#" className="quote-link" activeClassName="active">{author}</a> </li>
+                                    <li><a onClick={() => this.showQuotes(author)} href="#" className="quote-link" activeClassName="active">{author}</a> </li>
                                 )
                             )
                         }
