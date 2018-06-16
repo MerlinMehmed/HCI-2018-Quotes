@@ -1,6 +1,25 @@
 import React, { Component } from "react";
 
 class Register extends Component {
+    register(e) {
+        if (this.refs.password.value && this.refs.repeat.value && this.refs.password.value !== this.refs.repeat.value) {
+            this.refs.repeat.setCustomValidity("Паролите трябва да съвпадат.");
+        } else {
+            this.refs.repeat.setCustomValidity("");
+        }
+        
+        if (this.refs.email.validity.valid && this.refs.password.validity.valid && this.refs.repeat.validity.valid) {
+            e.preventDefault();
+            const emailSections = this.refs.email.value.split("@");
+            let username = "ПоМЕло";
+            if (emailSections && emailSections.length > 0) {
+                username = emailSections[0];
+            }
+            sessionStorage.setItem("username", username);
+            window.location.href = "/";
+        }
+    }
+
     render() {
         return (
             <div className="container">
@@ -20,19 +39,19 @@ class Register extends Component {
                             </div>
                             <div className="form-group">
                                 <label>*E-mail адрес:</label>
-                                <input type="email" placeholder="Въведи своя e-mail адрес тук" className="form-control" required />
+                                <input ref="email" type="email" placeholder="Въведи своя e-mail адрес тук" className="form-control" required />
                             </div>
                             <div className="row">
                                 <div className="col-md-6 form-group">
                                     <label>*Парола:</label>
-                                    <input type="password" placeholder="Въведи паролата си тук" className="form-control" required />
+                                    <input ref="password" type="password" placeholder="Въведи паролата си тук" className="form-control" required />
                                 </div>
                                 <div className="col-md-6 form-group">
                                     <label>*Потвърди своята парола:</label>
-                                    <input type="password" placeholder="Потвърди паролата си тук" className="form-control" required />
+                                    <input ref="repeat" type="password" placeholder="Потвърди паролата си тук" className="form-control" required />
                                 </div>
                             </div>
-                            <div class="row">
+                            <div className="row">
                                 <div className="col-md-6 form-group">
                                     <label>Рождена дата:</label>
                                     <input type="date" className="form-control" />
@@ -42,7 +61,7 @@ class Register extends Component {
                                     <input type="file" name="pic" accept="image/*" className="form-control" />
                                 </div>
                             </div>
-                            <div class="row">
+                            <div className="row">
                                 <div className="col-md-6 form-group">
                                     <label>Любим цитат:</label>
                                     <textarea placeholder="Въведи любимия си цитат тук" rows="3" className="form-control"></textarea>
@@ -55,7 +74,7 @@ class Register extends Component {
                             <div className="form-group">
                                 <label>*Задължителни полета</label>
                             </div>
-                            <button type="submit" className="btn btn-info btn-width">Регистрация</button>
+                            <button onClick={this.register.bind(this)} type="submit" className="btn btn-info btn-width">Регистрация</button>
                         </form>
                     </div>
                 </div>
