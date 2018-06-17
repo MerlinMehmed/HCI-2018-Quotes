@@ -83,7 +83,7 @@ class Quote extends Component {
         if (this.props.isPersonal) {
             editButtons =
                 <div className="edit-buttons">
-                    <button type="button" className="btn btn-sm btn-info">Редактирай</button>
+                    <a href={"/editPersonalQuote?id=" + this.props.id}><button type="button" className="btn btn-sm btn-info">Редактирай</button></a>
                     <button type="button" onClick={this.deleteQuote.bind(this)} className="btn btn-sm btn-danger">Изтрий</button>
                 </div>;
         }

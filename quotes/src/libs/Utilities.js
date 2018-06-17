@@ -1,8 +1,9 @@
 import quotes from "./quotes.json"
 
 let allQuotes = quotes.quotes;
-let counter = 0;
-let id = 1;
+let counter = +sessionStorage.getItem("counter") || 0;
+let id = sessionStorage.getItem("id") || 0;
+
 const images = [
     "/images/flowers.jpg",
     "/images/sun.jpg",
@@ -10,7 +11,7 @@ const images = [
     "/images/sky.jpg",
     "/images/mountains.jpg",
     "/images/ocean2.png",
-    "/images/forest.png"
+    "/images/forest.jpg"
 ]
 
 export function findAllQuotes() {
@@ -77,33 +78,68 @@ export function addStoredQuote(content, author, category, source) {
         img: getImage()
     });
     id++;
+    sessionStorage.setItem("id", id);
     sessionStorage.setItem("quotes", JSON.stringify(storedQuotes));
 }
 
-export function addPersonalQuote(content) {
+export function addPersonalQuote(content, quoteId) {
     let personalQuotes = JSON.parse(sessionStorage.getItem("personal")) || [];
-    personalQuotes.push({
-        id: id,
-        content: content,
-        author: sessionStorage.getItem("username"),
-        img: getImage(),
-        isPersonal: true
-    });
-    id++;
+    quoteId = getId(quoteId);
+
+    const index = personalQuotes.findIndex(x => +x.id === quoteId);
+    let quote;
+    if (index >= 0) {
+        quote = personalQuotes.splice(index, 1)[0];
+        quote.content = content;
+    } else {
+        quote = {
+            id: id,
+            content: content,
+            author: sessionStorage.getItem("username"),
+            img: getImage(),
+            isPersonal: true
+        };
+        id++;
+        sessionStorage.setItem("id", id);
+    }
+
+    personalQuotes.push(quote);
     sessionStorage.setItem("personal", JSON.stringify(personalQuotes));
 }
 
-export function deletePersonalQuote(id) {
-    let storedQuotes = JSON.parse(sessionStorage.getItem("personal")) || [];
-    const index = storedQuotes.findIndex(x => x.id === id);
+export function deletePersonalQuote(quoteId) {
+    quoteId = getId(quoteId);
+
+    let personalQuotes = JSON.parse(sessionStorage.getItem("personal")) || [];
+    const index = personalQuotes.findIndex(x => +x.id === quoteId);
     if (index > -1) {
-        storedQuotes.splice(index, 1);
+        personalQuotes.splice(index, 1);
     }
-    sessionStorage.setItem("personal", JSON.stringify(storedQuotes));
+    sessionStorage.setItem("personal", JSON.stringify(personalQuotes));
+}
+
+export function getQuoteById(quoteId) {
+    quoteId = getId(quoteId);
+    let storedQuotes = JSON.parse(sessionStorage.getItem("personal")) || [];
+    const index = storedQuotes.findIndex(x => +x.id === quoteId);
+    if (index >= 0) {
+        return storedQuotes[index];
+    }
+
+    return null;
 }
 
 function getImage() {
     const image = images[counter];
-    counter = (counter + 1) % images.length;
+    counter = (+counter + 1) % images.length;
+    sessionStorage.setItem("counter", counter);
     return image;
+}
+
+function getId(quoteId) {
+    if (quoteId === null || quoteId === undefined) {
+        quoteId = -1;
+    }
+    quoteId = +quoteId;
+    return quoteId;
 }

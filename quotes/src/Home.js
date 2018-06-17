@@ -39,8 +39,8 @@ class Home extends Component {
                     <div>
                         {
                             this.state.quotes.reverse().map(
-                                (quote) => (
-                                    <Quote content={quote.content.toString()} author={quote.author.toString()} img={quote.img} />
+                                (quote, index) => (
+                                    <Quote key={index} content={quote.content.toString()} author={quote.author.toString()} img={quote.img} />
                                 ))
                         }
                         <Quote

@@ -25,6 +25,7 @@ class App extends Component {
             <Route path="/register" component={Register} />
             <Route path="/addQuote" component={AddQuote} />
             <Route path="/addPersonalQuote" component={AddPersonalQuote} />
+            <Route path="/editPersonalQuote" component={AddPersonalQuote} />
       			<Route path="/Browse/Authors" component={ViewAuthors} />
       			<Route path="/Browse/Books and magazines" component={ViewSources} />
       			<Route path="/Browse/Categories" component={ViewCategories} />
