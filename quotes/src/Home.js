@@ -9,7 +9,7 @@ class Home extends Component {
         this.getQuotesFromSession();
         this.state = { quotes: this.quotes };
 
-        this.text = "Нищо не лекува така добре душата както вълненията, а от вълненията може да ни излекува само душата.";
+        this.content = "Нищо не лекува така добре душата както вълненията, а от вълненията може да ни излекува само душата.";
         this.author = "Оскар Уайлд";
     }
 
@@ -27,7 +27,7 @@ class Home extends Component {
             <div className="banner">
                 <div className="container banner-text text-center">
                     <h1>Цитат на деня</h1>
-                    <p>{this.text}</p>
+                    <p>{this.content}</p>
                     <p>- {this.author}</p>
                 </div>
             </div>
@@ -40,18 +40,18 @@ class Home extends Component {
                         {
                             this.state.quotes.reverse().map(
                                 (quote) => (
-                                    <Quote text={quote.text.toString()} author={quote.author.toString()} img={quote.img} />
+                                    <Quote content={quote.content.toString()} author={quote.author.toString()} img={quote.img} />
                                 ))
                         }
                         <Quote
-                            text={"Нищо не лекува така добре душата както вълненията, а от вълненията може да ни излекува само душата."}
+                            content={"Нищо не лекува така добре душата както вълненията, а от вълненията може да ни излекува само душата."}
                             author={"Оскар Уайлд"} 
                             img={"/images/flowers.jpg"}/>
                         <Quote
-                            text={"Може ли разстоянието наистина да те раздели от приятелите ти... Ако искаш да си с някого, когото обичаш, не си ли вече там при него?"}
+                            content={"Може ли разстоянието наистина да те раздели от приятелите ти... Ако искаш да си с някого, когото обичаш, не си ли вече там при него?"}
                             author={"Ричард Бах"}
                             img={"/images/lake.jpg"} />
-                        <Quote text={"Запиташ ли се дали си щастлив, веднага спираш да бъдеш."} author={"Джон Стюарт Мил"} img={"/images/sun.jpg"} />
+                        <Quote content={"Запиташ ли се дали си щастлив, веднага спираш да бъдеш."} author={"Джон Стюарт Мил"} img={"/images/sun.jpg"} />
                     </div>
                 </div>
             </div>

@@ -73,7 +73,7 @@ class Profile extends Component {
                             {
                                 this.state.favQuotes.length ? this.state.favQuotes.reverse().map(
                                     (quote, index) => (
-                                        <Quote key={index} text={quote.text.toString()} author={quote.author.toString()} img={quote.img} />
+                                        <Quote key={index} content={quote.content.toString()} author={quote.author.toString()} img={quote.img} />
                                     )
                                 ) :
                                     <p>Все още нямате любими цитати.</p>
@@ -83,7 +83,7 @@ class Profile extends Component {
                             <h3>Лично творчество</h3>
                             {
                                 this.state.personal.length ? this.state.personal.reverse().map((quote) => (
-                                    <Quote text={quote.text.toString()} author={quote.author.toString()} img={quote.img}/>
+                                    <Quote content={quote.content.toString()} author={quote.author.toString()} img={quote.img}/>
                                 )) :
                                     <p>Все още нямате добавени цитати.</p>
                             }

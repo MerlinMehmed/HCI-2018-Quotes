@@ -9,7 +9,7 @@ import ViewAuthors from "./views/viewAuthors";
 import ViewSources from "./views/viewSources";
 import ViewCategories from "./views/viewCategories";
 import AddPersonalQuote from "./forms/AddPersonalQuote";
-import Page from "./Page";
+import UserQuotes from "./UserQuotes";
 import Profile from "./Profile";
 import { Switch, Route } from "react-router-dom";
 import ViewSearch from "./views/viewSearch";
@@ -29,7 +29,7 @@ class App extends Component {
       			<Route path="/Browse/Books and magazines" component={ViewSources} />
       			<Route path="/Browse/Categories" component={ViewCategories} />
       			<Route path="/Browse/Search" component={ViewSearch} />
-            <Route path="/page" component={Page} />
+            <Route path="/userQuotes" component={UserQuotes} />
             <Route path="/profile" component={Profile} />
           </Switch>
       </div>

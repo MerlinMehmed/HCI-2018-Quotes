@@ -77,7 +77,7 @@ class Navbar extends Component {
                             </div>
                         </li>
                         <li className="nav-item">
-                            <NavLink to="/page" className="nav-link" activeClassName="active">Лични цитати</NavLink>
+                            <NavLink to="/userQuotes" className="nav-link" activeClassName="active">Лични цитати</NavLink>
                         </li>
                     </ul>
                     {rightMenu}

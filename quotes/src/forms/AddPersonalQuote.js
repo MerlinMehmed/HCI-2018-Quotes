@@ -1,25 +1,17 @@
 import React, { Component } from "react";
+import { addPersonalQuote } from "../libs/Utilities";
 
 class AddPersonalQuote extends Component {
     constructor(props) {
         super(props);
-        this.setQuotesToSession();
     }
 
-    setQuotesToSession() {
-        let storedQuotes = sessionStorage.getItem("personal");
-        if (storedQuotes == null) {
-            window.sessionStorage.setItem("personal", JSON.stringify([]));
+    addQuote(ev) {
+        if (this.refs.content.value) {
+            ev.preventDefault();
+            addPersonalQuote(this.refs.content.value);
+            window.location.href = "/userQuotes";
         }
-    }
-
-    addQuote() {
-        let storedQuotes = JSON.parse(sessionStorage.getItem("personal"));
-        storedQuotes.push({
-            text: "Вие никога няма да можете да решите проблема, ако продължавате да мислите по същия начин, който ви е причинил този проблем.",
-            author: sessionStorage.getItem("username")
-        });
-        window.sessionStorage.setItem("personal", JSON.stringify(storedQuotes));
     }
 
     render() {
@@ -40,7 +32,7 @@ class AddPersonalQuote extends Component {
                             <div className="form-group">
                                 <label>*Задължителни полета</label>
                             </div>
-                            <button type="submit" className="btn btn-info btn-width" onClick={this.addQuote}>Добавяне</button>
+                            <button type="submit" className="btn btn-info btn-width" onClick={this.addQuote.bind(this)}>Добавяне</button>
                         </form>
                     </div>
                 </div>

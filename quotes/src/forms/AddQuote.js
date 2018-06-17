@@ -1,25 +1,17 @@
 import React, { Component } from "react";
+import { addStoredQuote } from "../libs/Utilities";
 
 class AddQuote extends Component {
     constructor(props) {
         super(props);
-        this.setQuotesToSession();
     }
 
-    setQuotesToSession() {
-        let storedQuotes = sessionStorage.getItem("quotes");
-        if (storedQuotes == null) {
-            window.sessionStorage.setItem("quotes", JSON.stringify([]));
+    addQuote(ev) {
+        if (this.refs.content.value && this.refs.author.value) {
+            ev.preventDefault();
+            addStoredQuote(this.refs.content.value, this.refs.author.value, this.refs.category.value, this.refs.source.value);
+            window.location.href = "/";
         }
-    }
-
-    addQuote() {
-        let storedQuotes = JSON.parse(sessionStorage.getItem("quotes"));
-        storedQuotes.push({
-            text: "Вие никога няма да можете да решите проблема, ако продължавате да мислите по същия начин, който ви е причинил този проблем.",
-            author: "Алберт Айнщайн"
-        });
-        window.sessionStorage.setItem("quotes", JSON.stringify(storedQuotes));
     }
 
     render() {
@@ -31,30 +23,30 @@ class AddQuote extends Component {
                         <form>
                             <div className="form-group">
                                 <label>*Цитат:</label>
-                                <textarea maxlength="500" placeholder="Въведи своя цитат тук" rows="3" className="form-control" required></textarea>
+                                <textarea ref="content" maxlength="500" placeholder="Въведи своя цитат тук" rows="3" className="form-control" required></textarea>
                             </div>
                             <div className="form-group">
                                 <label>*Автор:</label>
-                                <input type="text" placeholder="Въведи автора на цитата тук" className="form-control" required />
+                                <input ref="author" type="text" placeholder="Въведи автора на цитата тук" className="form-control" required />
                             </div>
                             <div className="form-group">
                                 <label>*Категория:</label>
-                                <select name="category" className="form-control" required>
-                                    <option value="love">Любов</option>
-                                    <option value="friendship">Приятелство</option>
-                                    <option value="life">Живот</option>
-                                    <option value="happiness">Щастие</option>
-                                    <option value="sadness">Тъга</option>
-                                    <option value="time">Време</option>
-                                    <option value="good">Добро</option>
-                                    <option value="trust">Доверие</option>
-                                    <option value="egoism">Егоизъм</option>
-                                    <option value="knowledge">Знание</option>
+                                <select ref="category" name="category" className="form-control" required>
+                                    <option value="Любов">Любов</option>
+                                    <option value="Приятелство">Приятелство</option>
+                                    <option value="Живот">Живот</option>
+                                    <option value="Щастие">Щастие</option>
+                                    <option value="Тъга">Тъга</option>
+                                    <option value="Време">Време</option>
+                                    <option value="Добро">Добро</option>
+                                    <option value="Доверие">Доверие</option>
+                                    <option value="Егоизъм">Егоизъм</option>
+                                    <option value="Знание">Знание</option>
                                 </select>
                             </div>
                             <div className="form-group">
                                 <label>Източник:</label>
-                                <input type="text" placeholder="Въведи книга/списание/сайт, от който е цитата" className="form-control" />
+                                <input ref="source" type="text" placeholder="Въведи книга/списание/сайт, от който е цитата" className="form-control" />
                             </div>
                             <div className="form-group">
                                 <label>Изображение:</label>
@@ -63,9 +55,7 @@ class AddQuote extends Component {
                             <div className="form-group">
                                 <label>*Задължителни полета</label>
                             </div>
-                            {/*<Home ref={home => this.home = home}/>*/}
-
-                            <button type="button" className="btn btn-info btn-width" onClick={this.addQuote}>Добавяне</button>
+                            <button type="submit" className="btn btn-info btn-width" onClick={this.addQuote.bind(this)}>Добавяне</button>
                         </form>
                     </div>
                 </div>

@@ -59,7 +59,7 @@ class ViewAuthors extends Component {
                     {
                         filterQuotesByAuthor(this.state.author).map(
                             (quote) => (
-                                <Quote text={quote.content} author={quote.author} img={quote.img}/>
+                                <Quote content={quote.content} author={quote.author} img={quote.img}/>
                             )
                         )
                     }

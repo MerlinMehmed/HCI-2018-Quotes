@@ -23,7 +23,7 @@ class Quote extends Component {
     addFavouriteQuote() {
         let storedQuotes = JSON.parse(sessionStorage.getItem("favourite"));
         storedQuotes.push({
-            text: this.props.text,
+            content: this.props.content,
             author: this.props.author,
             img: this.props.img
         });
@@ -32,9 +32,9 @@ class Quote extends Component {
 
     removeFavouriteQuote() {
         let storedQuotes = JSON.parse(sessionStorage.getItem("favourite"));
-        var text = this.props.text;
+        var content = this.props.content;
         storedQuotes = storedQuotes.filter(function (quote) {
-            return quote.text !== text
+            return quote.content !== content
         })
         window.sessionStorage.setItem("favourite", JSON.stringify(storedQuotes));
     }
@@ -64,8 +64,8 @@ class Quote extends Component {
 
     markLikedQuotes() {
         const storedQuotes = JSON.parse(sessionStorage.getItem("favourite"));
-        const text = this.props.text;
-        if (storedQuotes.find(x => x.text === text)) {
+        const content = this.props.content;
+        if (storedQuotes.find(x => x.content === content)) {
             this.markHeartRed();
         }
     }
@@ -75,7 +75,7 @@ class Quote extends Component {
             <div className="quote">
                 <div className="quote-content">
                     <span className="quote-body">
-                        <blockquote>{this.props.text}</blockquote>
+                        <blockquote>{this.props.content}</blockquote>
                         <cite>- {this.props.author}</cite>
                     </span>
                     <img className="quote-img img-responsive" src={this.props.img || "/images/ocean2.png"} responsive="true" />
@@ -98,7 +98,7 @@ class Quote extends Component {
 }
 
 Quote.propTypes = {
-    text: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
 };
 

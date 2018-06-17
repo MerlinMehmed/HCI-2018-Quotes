@@ -59,7 +59,7 @@ class ViewSources extends Component {
                     {
                         filterQuotesBySource(this.state.source).map(
                             (quote) => (
-                                <Quote text={quote.content} author={quote.author} img={quote.img}/>
+                                <Quote content={quote.content} author={quote.author} img={quote.img}/>
                             )
                         )
                     }
