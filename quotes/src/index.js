@@ -8,6 +8,7 @@ import { BrowserRouter } from "react-router-dom";
 import "./include/bootstrap";
 import "font-awesome/css/font-awesome.min.css";
 import "popper.js/dist/popper.min.js";
+import 'react-notifications/lib/notifications.css';
 
 ReactDOM.render(<BrowserRouter><App /></ BrowserRouter>, document.getElementById("root"));
 registerServiceWorker();

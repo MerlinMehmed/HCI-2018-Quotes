@@ -93,7 +93,7 @@ export function addPersonalQuote(content) {
     sessionStorage.setItem("personal", JSON.stringify(personalQuotes));
 }
 
-export function deleteQuote(id) {
+export function deletePersonalQuote(id) {
     let storedQuotes = JSON.parse(sessionStorage.getItem("personal")) || [];
     const index = storedQuotes.findIndex(x => x.id === id);
     if (index > -1) {

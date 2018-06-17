@@ -63,3 +63,11 @@
         max-width: 90%;
     }
 }
+
+.edit-buttons {
+    margin-bottom: 2em;
+}
+
+.edit-buttons button:first-of-type {
+    margin-right: 0.5em;
+}

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./Quote.css";
 import Rating from "./Rating"
+import { deletePersonalQuote } from "./libs/Utilities";
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 class Quote extends Component {
     constructor(props) {
@@ -70,9 +72,24 @@ class Quote extends Component {
         }
     }
 
+    deleteQuote() {
+        deletePersonalQuote(this.props.id);
+        this.refs.quote.style.display = "none";
+        NotificationManager.success('Успешно изтрит!');
+    }
+
     render() {
+        let editButtons = "";
+        if (this.props.isPersonal) {
+            editButtons =
+                <div className="edit-buttons">
+                    <button type="button" className="btn btn-sm btn-info">Редактирай</button>
+                    <button type="button" onClick={this.deleteQuote.bind(this)} className="btn btn-sm btn-danger">Изтрий</button>
+                </div>;
+        }
+
         return (
-            <div className="quote">
+            <div ref="quote" className="quote">
                 <div className="quote-content">
                     <span className="quote-body">
                         <blockquote>{this.props.content}</blockquote>
@@ -80,7 +97,7 @@ class Quote extends Component {
                     </span>
                     <img className="quote-img img-responsive" src={this.props.img || "/images/ocean2.png"} responsive="true" />
                 </div>
-                <div className="quote-bar" width="600px">
+                <div className="quote-bar">
                     <Rating rating="2" />
                     <span>
                         <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId" width="59" height="20" className="facebook-share" scrolling="no" frameBorder="0" allowTransparency="true"></iframe>
@@ -92,6 +109,8 @@ class Quote extends Component {
                         <i className="fa fa-heart"></i>
                     </span>
                 </div>
+                {editButtons}
+                <NotificationContainer/>
             </div>
         );
     }
@@ -100,6 +119,8 @@ class Quote extends Component {
 Quote.propTypes = {
     content: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
+    isPersonal: PropTypes.bool,
+    id: PropTypes.number
 };
 
 export default Quote;

@@ -82,8 +82,8 @@ class Profile extends Component {
                         <div id="personal" className="hidden" ref="personal">
                             <h3>Лично творчество</h3>
                             {
-                                this.state.personal.length ? this.state.personal.reverse().map((quote) => (
-                                    <Quote content={quote.content.toString()} author={quote.author.toString()} img={quote.img}/>
+                                this.state.personal.length ? this.state.personal.reverse().map((quote, index) => (
+                                    <Quote key={index} content={quote.content.toString()} author={quote.author.toString()} img={quote.img} id={quote.id} isPersonal={true}/>
                                 )) :
                                     <p>Все още нямате добавени цитати.</p>
                             }
